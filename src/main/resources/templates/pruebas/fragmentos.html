@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>TechShop</title>
+    </head>
+    <body>
+        <!-- 1 Sección para crear el boton de agregar... llamará a una ventana modal-->
+        <section th:fragment="listadoProductos">
+          
+            <div class="row row-cols-3">
+                <div class="card" th:each="p : ${productos}">
+                    <figure> 
+                        <img 
+                            th:src="${p.rutaImagen}"             
+                             height="200" 
+                             alt="alt"/>
+                        <figcaption>
+                            [[${p.precio}]] ([[${p.existencias}]])
+                        </figcaption>
+                    </figure>
+                    <div class="card-header">
+                        <h4>[[${p.descripcion}]]</h4>
+                    </div> 
+                    <div class="card-body">
+                        <p>[[${p.detalle}]]</p>  
+                    </div>
+                </div>
+            </div> 
+            
+        </section>
+
+       
+    </body>
+</html>
