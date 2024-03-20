@@ -15,5 +15,15 @@ public void save(Producto producto);
 
 public void delete(Producto producto);
 
-
+  //se define un metodo con una consulta JPA primera forma
+    
+    public List<Producto> consultaJPA(double precioInf, double precioSup);
+    
+     //se define un metodo con una consulta JPQL PARA HACER CONSULTAS A LA BASE DE BATOS, segunda forma
+   
+    public List<Producto> consultaJPQL(double precioInf, double precioSup);
+    
+     //se define un metodo con una consulta SQL PARA HACER CONSULTAS A LA BASE DE BATOS, tercera forma 
+    
+    public List<Producto> consultaSQL(double precioInf, double precioSup);
 }
