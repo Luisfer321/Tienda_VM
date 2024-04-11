@@ -12,6 +12,7 @@
                 <div class="row">
                     <div class="col-md-3">   
                         <button 
+                            sec:authorize="hasRole('ADMIN')"
                             type="button" 
                             class="btn btn-primary btn-block" 
                             data-bs-toggle="modal" 
@@ -117,13 +118,23 @@
                                             <td style="text-align: end">[[${producto.precio*producto.existencias}]]</td>
                                             <td>[[${producto.categoria.descripcion}]]</td>
 
+                                            
+                                            
+                                            
                                             <td th:text="${categoria.activo} ? 'Activa' : 'Inactiva'" />
-                                            <td><a th:href="@{/categoria/eliminar/}+${categoria.idCategoria}"
+                                            <td sec:authorize="hasRole('ADMIN')"><a th:href="@{/categoria/eliminar/}+${categoria.idCategoria}"
                                                    class="btn btn-danger">
                                                     <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
                                                 <a th:href="@{/categoria/modificar/}+${categoria.idCategoria}"
                                                    class="btn btn-success">
                                                     <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]</a></td></tr>
+                                                    
+                                                    
+                                                    
+                                                    
+                                         
+                                                    
+                                                    
                                     </tbody>
                                 </table>
                             </div>
